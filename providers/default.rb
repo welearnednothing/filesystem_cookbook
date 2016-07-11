@@ -97,10 +97,9 @@ action :create do
       count = 0
       until ::File.exists?(device) do
         count += 1
-        sleep 0.3
+        sleep 1
         Chef::Log.debug "waiting for #{device} to exist, try # #{count}"
-        if count >= 1000
-          #TODO: make this a paramater
+        if count >= node[:filesystem_tools][:device_timeout]
           raise Timeout::Error, "Timeout waiting for device"
         end
       end

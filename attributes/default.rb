@@ -33,3 +33,6 @@ default[:filesystem_tools][:ext3][:forceopt] = "-F"
 default[:filesystem_tools][:ext4][:forceopt] = "-F"
 default[:filesystem_tools][:xfs][:forceopt] = "-f"
 default[:filesystem_tools][:btrfs][:forceopt] = "-f"
+
+# The number of seconds to wait for a device to become available
+default[:filesystem_tools][:device_timeout] = 300
